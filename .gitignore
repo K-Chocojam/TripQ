@@ -1,0 +1,17 @@
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+
+# Signing keys and credentials
+*.jks
+*.keystore
+keystore.properties
+
+# IDE
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+app/release/
