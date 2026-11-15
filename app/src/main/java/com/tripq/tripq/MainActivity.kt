@@ -208,7 +208,12 @@ fun TripQHomeScreen() {
         selectedMenu == "TRIPQ BRAIN" -> {
             BrainQuizScreen(
                 gameMode = selectedMode!!,
-                category = selectedCategory!!
+                category = selectedCategory!!,
+                onHome = {
+                    selectedMenu = null
+                    selectedCategory = null
+                    selectedMode = null
+                }
             )
         }
 
@@ -795,7 +800,8 @@ val brainCategoryQuestions = mapOf(
 @Composable
 fun BrainQuizScreen(
     gameMode: String,
-    category: String
+    category: String,
+    onHome: () -> Unit
 ) {
     val questions = brainCategoryQuestions[category] ?: generalQuestions
 
@@ -975,6 +981,14 @@ fun BrainQuizScreen(
                 }
             ) {
                 Text("다시 도전하기")
+            }
+
+            Spacer(Modifier.height(12.dp))
+
+            Button(
+                onClick = onHome
+            ) {
+                Text("메인 화면으로 돌아가기")
             }
         }
     } else {
